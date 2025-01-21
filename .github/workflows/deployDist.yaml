@@ -1,5 +1,13 @@
 name: Deploy Dist
-on: [push, workflow_dispatch]
+# on: [push, workflow_dispatch]
+# If we want to trigger this only when we push in main branch
+on:
+  push:
+    branches: -main
+    paths-ignore:
+      - "README.md"
+      - "node_modules"
+  workflow_dispatch:
 
 jobs:
   test:
